@@ -1,10 +1,10 @@
 function fetch(url, method, content){
-    let HttpURLConnectionftch = Java.type('java.net.HttpURLConnection');
-    let URLftch = Java.type('java.net.URL');
-    let BufferedReaderftch = Java.type('java.io.BufferedReader');
-    let InputStreamReaderftch = Java.type('java.io.InputStreamReader');
-    let StringBufferftch = Java.type("java.lang.StringBuffer");
-    let sendftch = {
+    var HttpURLConnectionftch = Java.type('java.net.HttpURLConnection');
+    var URLftch = Java.type('java.net.URL');
+    var BufferedReaderftch = Java.type('java.io.BufferedReader');
+    var InputStreamReaderftch = Java.type('java.io.InputStreamReader');
+    var StringBufferftch = Java.type("java.lang.StringBuffer");
+    var sendftch = {
         error: "[ERROR] ",
         info: "[INFO] ",
         warn: "[WARN] ",
@@ -20,14 +20,14 @@ function fetch(url, method, content){
     }
     if(!method){
         try{
-            let urlftch = new URLftch(url);
-            let conftch = urlftch.openConnection();
+            var urlftch = new URLftch(url);
+            var conftch = urlftch.openConnection();
             conftch.setRequestMethod("GET");
             conftch.setRequestProperty("User-Agent", "Mozilla/5.0");
-            let responsecodeftch = conftch.getResponseCode();
-            let inftch = new BufferedReaderftch(new InputStreamReaderftch(conftch.getInputStream()));
-            let inputlineftch;
-            let responseftch = new StringBufferftch();
+            var responsecodeftch = conftch.getResponseCode();
+            var inftch = new BufferedReaderftch(new InputStreamReaderftch(conftch.getInputStream()));
+            var inputlineftch;
+            var responseftch = new StringBufferftch();
             while((inputlineftch = inftch.readLine()) != null){
                 responseftch.append(inputlineftch);
             }
@@ -40,14 +40,14 @@ function fetch(url, method, content){
     }
     if(method == "GET"){
         try{
-            let urlftch = new URLftch(url);
-            let conftch = urlftch.openConnection();
+            var urlftch = new URLftch(url);
+            var conftch = urlftch.openConnection();
             conftch.setRequestMethod("GET");
             conftch.setRequestProperty("User-Agent", "Mozilla/5.0");
-            let responsecodeftch = conftch.getResponseCode();
-            let inftch = new BufferedReaderftch(new InputStreamReaderftch(conftch.getInputStream()));
-            let inputlineftch;
-            let responseftch = new StringBufferftch();
+            var responsecodeftch = conftch.getResponseCode();
+            var inftch = new BufferedReaderftch(new InputStreamReaderftch(conftch.getInputStream()));
+            var inputlineftch;
+            var responseftch = new StringBufferftch();
             while((inputlineftch = inftch.readLine()) != null){
                 responseftch.append(inputlineftch);
             }
