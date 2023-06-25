@@ -64,5 +64,6 @@ function fetch(url, method, content){
             return;
         }
         console.warn(sendftch.warn + "This mode is Experimental and may not work correctly!");
+        return "Not supported";
     }
 }
