@@ -66,7 +66,6 @@ function fetch(url, method, body){
             console.error(sendftch.error + "You need content to use POST!");
             return;
         }
-        console.warn(sendftch.warn + "This mode is Experimental and may not work correctly!");
         var urlftch = new URLftch(url);
         var conftch = urlftch.openConnection();
         conftch.setRequestMethod("POST");
