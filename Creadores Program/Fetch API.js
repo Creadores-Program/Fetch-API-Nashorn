@@ -61,6 +61,26 @@ function fetch(url, method, body){
         }
         return;
     }
+    if(method == "HEAD"){
+        try{
+            var urlftch = new URLftch(url);
+            var conftch = urlftch.openConnection();
+            conftch.setRequestMethod("HEAD");
+            conftch.setRequestProperty("User-Agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36");
+            var responsecodeftch = conftch.getResponseCode();
+            var inftch = new BufferedReaderftch(new InputStreamReaderftch(conftch.getInputStream()));
+            var inputlineftch;
+            var responseftch = new StringBufferftch();
+            while((inputlineftch = inftch.readLine()) != null){
+                responseftch.append(inputlineftch);
+            }
+            inftch.close();
+            return responseftch.toString();
+        }catch(error){
+            console.error(sendftch.error + error);
+        }
+        return;
+    }
     if(method == "POST"){
         if(!body){
             console.error(sendftch.error + "You need content to use POST!");
