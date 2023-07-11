@@ -112,4 +112,35 @@ function fetch(url, method, body){
         }
         return responseftch.toString();
     }
+    if(method == "PUT"){
+        if(!body){
+            console.error(sendftch.error + "You need content to use PUT!");
+            return;
+        }
+        var urlftch = new URLftch(url);
+        var conftch = urlftch.openConnection();
+        conftch.setRequestMethod("PUT");
+        conftch.setRequestProperty("User-Agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36");
+        conftch.setRequestProperty("Content-Type", "application/json; utf-8");
+        var jsonContentftch = body;
+        conftch.setDoOutput(true);
+        var osftch = conftch.getOutputStream();
+        try{
+            var inputftch = jsonContentftch.getBytes("utf-8");
+            osftch.write(inputftch, 0, inputftch.length);
+        }finally{
+            osftch.close();
+        }
+        var brftch = new BufferedReaderftch(new InputStreamReaderftch(conftch.getInputStream(), "utf-8"));
+        try{
+            var responseftch = new StringBuilderftch();
+            var responseLineftch = null;
+            while((responseLineftch = brftch.readLine()) != null){
+                responseftch.append(responseLineftch.trim());
+            }
+        }finally{
+            brftch.close();
+        }
+        return responseftch.toString();
+    }
 }
