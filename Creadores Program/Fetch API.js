@@ -143,4 +143,7 @@ function fetch(url, method, body){
         }
         return responseftch.toString();
     }
+    if(method == "DELETE"){
+        console.warn(sendftch.warn + "Not supported!");
+    }
 }
