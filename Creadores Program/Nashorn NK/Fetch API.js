@@ -31,7 +31,7 @@ function fetch(url, method, body){
             inftch.close();
             return responseftch.toString();
         }catch(error){
-            console.error(sendftch.error + error);
+            console.error(error);
         }
         return;
     }
@@ -51,7 +51,7 @@ function fetch(url, method, body){
             inftch.close();
             return responseftch.toString();
         }catch(error){
-            console.error(sendftch.error + error);
+            console.error(error);
         }
         return;
     }
@@ -71,13 +71,13 @@ function fetch(url, method, body){
             inftch.close();
             return responseftch.toString();
         }catch(error){
-            console.error(sendftch.error + error);
+            console.error(error);
         }
         return;
     }
     if(method == "POST"){
         if(!body){
-            console.error(sendftch.error + "You need content to use POST!");
+            console.error("You need content to use POST!");
             return;
         }
         var urlftch = new URLftch(url);
@@ -108,7 +108,7 @@ function fetch(url, method, body){
     }
     if(method == "PUT"){
         if(!body){
-            console.error(sendftch.error + "You need content to use PUT!");
+            console.error("You need content to use PUT!");
             return;
         }
         var urlftch = new URLftch(url);
@@ -138,6 +138,6 @@ function fetch(url, method, body){
         return responseftch.toString();
     }
     if(method == "DELETE"){
-        console.warn(sendftch.warn + "Not supported!");
+        console.warn("Not supported!");
     }
 }
