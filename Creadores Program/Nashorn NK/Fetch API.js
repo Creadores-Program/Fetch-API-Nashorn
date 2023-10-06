@@ -7,18 +7,12 @@ function fetch(url, method, body){
     var InputStreamReaderftch = Java.type('java.io.InputStreamReader');
     var StringBufferftch = Java.type("java.lang.StringBuffer");
     var StringBuilderftch = Java.type("java.lang.StringBuilder");
-    var sendftch = {
-        error: "[ERROR] ",
-        info: "[INFO] ",
-        warn: "[WARN] ",
-        log: ""
-    }
     if(!url){
-        console.error(sendftch.error + "it cant be empty!");
+        console.error("it cant be empty!");
         return;
     }
     if(url.contains(" ")){
-        console.error(sendftch.error + "The web page cannot contain spaces!");
+        console.error("The web page cannot contain spaces!");
         return;
     }
     if(!method){
