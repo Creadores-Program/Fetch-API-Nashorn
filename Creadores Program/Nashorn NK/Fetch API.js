@@ -84,7 +84,7 @@ function fetch(url, method, body){
         var urlftch = new URLftch(url);
         var conftch = urlftch.openConnection();
         conftch.setRequestMethod("POST");
-        conftch.setRequestProperty("User-Agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36");
+        conftch.setRequestProperty("User-Agent", UserAgentftch);
         conftch.setRequestProperty("Content-Type", "application/json; utf-8");
         var jsonContentftch = body;
         conftch.setDoOutput(true);
@@ -115,7 +115,7 @@ function fetch(url, method, body){
         var urlftch = new URLftch(url);
         var conftch = urlftch.openConnection();
         conftch.setRequestMethod("PUT");
-        conftch.setRequestProperty("User-Agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36");
+        conftch.setRequestProperty("User-Agent", UserAgentftch);
         conftch.setRequestProperty("Content-Type", "application/json; utf-8");
         var jsonContentftch = body;
         conftch.setDoOutput(true);
