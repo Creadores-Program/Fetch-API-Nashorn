@@ -7,6 +7,7 @@ function fetch(url, method, body){
     var InputStreamReaderftch = Java.type('java.io.InputStreamReader');
     var StringBufferftch = Java.type("java.lang.StringBuffer");
     var StringBuilderftch = Java.type("java.lang.StringBuilder");
+    var UserAgentftch = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36";
     if(!url){
         console.error("it cant be empty!");
         return;
@@ -20,7 +21,7 @@ function fetch(url, method, body){
             var urlftch = new URLftch(url);
             var conftch = urlftch.openConnection();
             conftch.setRequestMethod("GET");
-            conftch.setRequestProperty("User-Agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36");
+            conftch.setRequestProperty("User-Agent", UserAgentftch);
             var responsecodeftch = conftch.getResponseCode();
             var inftch = new BufferedReaderftch(new InputStreamReaderftch(conftch.getInputStream()));
             var inputlineftch;
@@ -40,7 +41,7 @@ function fetch(url, method, body){
             var urlftch = new URLftch(url);
             var conftch = urlftch.openConnection();
             conftch.setRequestMethod("GET");
-            conftch.setRequestProperty("User-Agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36");
+            conftch.setRequestProperty("User-Agent", UserAgentftch);
             var responsecodeftch = conftch.getResponseCode();
             var inftch = new BufferedReaderftch(new InputStreamReaderftch(conftch.getInputStream()));
             var inputlineftch;
@@ -60,7 +61,7 @@ function fetch(url, method, body){
             var urlftch = new URLftch(url);
             var conftch = urlftch.openConnection();
             conftch.setRequestMethod("HEAD");
-            conftch.setRequestProperty("User-Agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36");
+            conftch.setRequestProperty("User-Agent", UserAgentftch);
             var responsecodeftch = conftch.getResponseCode();
             var inftch = new BufferedReaderftch(new InputStreamReaderftch(conftch.getInputStream()));
             var inputlineftch;
