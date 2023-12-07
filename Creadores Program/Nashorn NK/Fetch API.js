@@ -1,13 +1,13 @@
 //Addon for Nashorn made by Creadores Program©2023
 //MIT license© https://raw.githubusercontent.com/Trollhunters501/Fetch-API-Nashorn/main/LICENSE
 function fetch(url, method, body){
-    var HttpURLConnectionftch = Java.type('java.net.HttpURLConnection');
-    var URLftch = Java.type('java.net.URL');
-    var BufferedReaderftch = Java.type('java.io.BufferedReader');
-    var InputStreamReaderftch = Java.type('java.io.InputStreamReader');
-    var StringBufferftch = Java.type("java.lang.StringBuffer");
-    var StringBuilderftch = Java.type("java.lang.StringBuilder");
-    var UserAgentftch = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36";
+    let HttpURLConnectionftch = Java.type('java.net.HttpURLConnection');
+    let URLftch = Java.type('java.net.URL');
+    let BufferedReaderftch = Java.type('java.io.BufferedReader');
+    let InputStreamReaderftch = Java.type('java.io.InputStreamReader');
+    let StringBufferftch = Java.type("java.lang.StringBuffer");
+    let StringBuilderftch = Java.type("java.lang.StringBuilder");
+    let UserAgentftch = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36";
     if(!url){
         console.error("it cant be empty!");
         return;
@@ -18,14 +18,14 @@ function fetch(url, method, body){
     }
     if(!method){
         try{
-            var urlftch = new URLftch(url);
-            var conftch = urlftch.openConnection();
+            let urlftch = new URLftch(url);
+            let conftch = urlftch.openConnection();
             conftch.setRequestMethod("GET");
             conftch.setRequestProperty("User-Agent", UserAgentftch);
-            var responsecodeftch = conftch.getResponseCode();
-            var inftch = new BufferedReaderftch(new InputStreamReaderftch(conftch.getInputStream()));
-            var inputlineftch;
-            var responseftch = new StringBufferftch();
+            let responsecodeftch = conftch.getResponseCode();
+            let inftch = new BufferedReaderftch(new InputStreamReaderftch(conftch.getInputStream()));
+            let inputlineftch;
+            let responseftch = new StringBufferftch();
             while((inputlineftch = inftch.readLine()) != null){
                 responseftch.append(inputlineftch);
             }
@@ -38,14 +38,14 @@ function fetch(url, method, body){
     }
     if(method == "GET"){
         try{
-            var urlftch = new URLftch(url);
-            var conftch = urlftch.openConnection();
+            let urlftch = new URLftch(url);
+            let conftch = urlftch.openConnection();
             conftch.setRequestMethod("GET");
             conftch.setRequestProperty("User-Agent", UserAgentftch);
-            var responsecodeftch = conftch.getResponseCode();
-            var inftch = new BufferedReaderftch(new InputStreamReaderftch(conftch.getInputStream()));
-            var inputlineftch;
-            var responseftch = new StringBufferftch();
+            let responsecodeftch = conftch.getResponseCode();
+            let inftch = new BufferedReaderftch(new InputStreamReaderftch(conftch.getInputStream()));
+            let inputlineftch;
+            let responseftch = new StringBufferftch();
             while((inputlineftch = inftch.readLine()) != null){
                 responseftch.append(inputlineftch);
             }
@@ -58,14 +58,14 @@ function fetch(url, method, body){
     }
     if(method == "HEAD"){
         try{
-            var urlftch = new URLftch(url);
-            var conftch = urlftch.openConnection();
+            let urlftch = new URLftch(url);
+            let conftch = urlftch.openConnection();
             conftch.setRequestMethod("HEAD");
             conftch.setRequestProperty("User-Agent", UserAgentftch);
-            var responsecodeftch = conftch.getResponseCode();
-            var inftch = new BufferedReaderftch(new InputStreamReaderftch(conftch.getInputStream()));
-            var inputlineftch;
-            var responseftch = new StringBufferftch();
+            let responsecodeftch = conftch.getResponseCode();
+            let inftch = new BufferedReaderftch(new InputStreamReaderftch(conftch.getInputStream()));
+            let inputlineftch;
+            let responseftch = new StringBufferftch();
             while((inputlineftch = inftch.readLine()) != null){
                 responseftch.append(inputlineftch);
             }
@@ -81,24 +81,24 @@ function fetch(url, method, body){
             console.error("You need content to use POST!");
             return;
         }
-        var urlftch = new URLftch(url);
-        var conftch = urlftch.openConnection();
+        let urlftch = new URLftch(url);
+        let conftch = urlftch.openConnection();
         conftch.setRequestMethod("POST");
         conftch.setRequestProperty("User-Agent", UserAgentftch);
         conftch.setRequestProperty("Content-Type", "application/json; utf-8");
-        var jsonContentftch = body;
+        let jsonContentftch = body;
         conftch.setDoOutput(true);
-        var osftch = conftch.getOutputStream();
+        let osftch = conftch.getOutputStream();
         try{
-            var inputftch = jsonContentftch.getBytes("utf-8");
+            let inputftch = jsonContentftch.getBytes("utf-8");
             osftch.write(inputftch, 0, inputftch.length);
         }finally{
             osftch.close();
         }
-        var brftch = new BufferedReaderftch(new InputStreamReaderftch(conftch.getInputStream(), "utf-8"));
+        let brftch = new BufferedReaderftch(new InputStreamReaderftch(conftch.getInputStream(), "utf-8"));
         try{
-            var responseftch = new StringBuilderftch();
-            var responseLineftch = null;
+            let responseftch = new StringBuilderftch();
+            let responseLineftch = null;
             while((responseLineftch = brftch.readLine()) != null){
                 responseftch.append(responseLineftch.trim());
             }
@@ -112,24 +112,24 @@ function fetch(url, method, body){
             console.error("You need content to use PUT!");
             return;
         }
-        var urlftch = new URLftch(url);
-        var conftch = urlftch.openConnection();
+        let urlftch = new URLftch(url);
+        let conftch = urlftch.openConnection();
         conftch.setRequestMethod("PUT");
         conftch.setRequestProperty("User-Agent", UserAgentftch);
         conftch.setRequestProperty("Content-Type", "application/json; utf-8");
-        var jsonContentftch = body;
+        let jsonContentftch = body;
         conftch.setDoOutput(true);
-        var osftch = conftch.getOutputStream();
+        let osftch = conftch.getOutputStream();
         try{
-            var inputftch = jsonContentftch.getBytes("utf-8");
+            let inputftch = jsonContentftch.getBytes("utf-8");
             osftch.write(inputftch, 0, inputftch.length);
         }finally{
             osftch.close();
         }
-        var brftch = new BufferedReaderftch(new InputStreamReaderftch(conftch.getInputStream(), "utf-8"));
+        let brftch = new BufferedReaderftch(new InputStreamReaderftch(conftch.getInputStream(), "utf-8"));
         try{
-            var responseftch = new StringBuilderftch();
-            var responseLineftch = null;
+            let responseftch = new StringBuilderftch();
+            let responseLineftch = null;
             while((responseLineftch = brftch.readLine()) != null){
                 responseftch.append(responseLineftch.trim());
             }
