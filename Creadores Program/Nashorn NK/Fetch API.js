@@ -141,6 +141,7 @@ function fetch(url, method, body, contentType){
         return conftch.getResponseCode();
     break;
         default:
+            throw "Method not supported or does not exist";
             break;
     }
 }
