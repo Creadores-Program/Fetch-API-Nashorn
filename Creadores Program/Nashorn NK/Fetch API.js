@@ -1,6 +1,7 @@
 //Addon for Nashorn made by Creadores Program©2023
 //MIT license© https://raw.githubusercontent.com/Trollhunters501/Fetch-API-Nashorn/main/LICENSE
 function fetch(url, method, body, contentType){
+    method = method || "GET";
     contentType = contentType || "application/json; utf-8";
     let HttpURLConnectionftch = Java.type('java.net.HttpURLConnection');
     let URLftch = Java.type('java.net.URL');
@@ -28,25 +29,6 @@ function fetch(url, method, body, contentType){
     let osftch;
     let inputftch;
     let brftch;
-    if(!method){
-        try{
-            urlftch = new URLftch(url);
-            conftch = urlftch.openConnection();
-            conftch.setRequestMethod("GET");
-            conftch.setRequestProperty("User-Agent", UserAgentftch);
-            responsecodeftch = conftch.getResponseCode();
-            inftch = new BufferedReaderftch(new InputStreamReaderftch(conftch.getInputStream()));
-            responseftch = new StringBufferftch();
-            while((inputlineftch = inftch.readLine()) != null){
-                responseftch.append(inputlineftch);
-            }
-            inftch.close();
-            return responseftch.toString();
-        }catch(error){
-            console.error(error);
-        }
-        return;
-    }
     if(method == "GET"){
         try{
             urlftch = new URLftch(url);
