@@ -25,7 +25,7 @@ function fetch(url, method, body){
             let responsecodeftch = conftch.getResponseCode();
             let inftch = new BufferedReaderftch(new InputStreamReaderftch(conftch.getInputStream()));
             let inputlineftch;
-            let responseftch = new StringBufferftch();
+            var responseftch = new StringBufferftch();
             while((inputlineftch = inftch.readLine()) != null){
                 responseftch.append(inputlineftch);
             }
@@ -45,7 +45,7 @@ function fetch(url, method, body){
             let responsecodeftch = conftch.getResponseCode();
             let inftch = new BufferedReaderftch(new InputStreamReaderftch(conftch.getInputStream()));
             let inputlineftch;
-            let responseftch = new StringBufferftch();
+            var responseftch = new StringBufferftch();
             while((inputlineftch = inftch.readLine()) != null){
                 responseftch.append(inputlineftch);
             }
@@ -65,7 +65,7 @@ function fetch(url, method, body){
             let responsecodeftch = conftch.getResponseCode();
             let inftch = new BufferedReaderftch(new InputStreamReaderftch(conftch.getInputStream()));
             let inputlineftch;
-            let responseftch = new StringBufferftch();
+            var responseftch = new StringBufferftch();
             while((inputlineftch = inftch.readLine()) != null){
                 responseftch.append(inputlineftch);
             }
@@ -97,7 +97,7 @@ function fetch(url, method, body){
         }
         let brftch = new BufferedReaderftch(new InputStreamReaderftch(conftch.getInputStream(), "utf-8"));
         try{
-            let responseftch = new StringBuilderftch();
+            var responseftch = new StringBuilderftch();
             let responseLineftch = null;
             while((responseLineftch = brftch.readLine()) != null){
                 responseftch.append(responseLineftch.trim());
@@ -128,7 +128,7 @@ function fetch(url, method, body){
         }
         let brftch = new BufferedReaderftch(new InputStreamReaderftch(conftch.getInputStream(), "utf-8"));
         try{
-            let responseftch = new StringBuilderftch();
+            var responseftch = new StringBuilderftch();
             let responseLineftch = null;
             while((responseLineftch = brftch.readLine()) != null){
                 responseftch.append(responseLineftch.trim());
