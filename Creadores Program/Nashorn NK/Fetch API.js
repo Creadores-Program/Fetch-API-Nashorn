@@ -39,8 +39,8 @@ function fetch(url, method, body, contentType, exHeaders){
             conftch.setRequestProperty("User-Agent", UserAgentftch);
             if(exHeaders != null){
                 exHeadersJ = Object.keys(exHeaders);
-                for(var k of exHeadersJ){
-                    conftch.setRequestProperty(k, exHeaders[k]);
+                for(var k in exHeadersJ){
+                    conftch.setRequestProperty(exHeadersJ[k], exHeaders[exHeadersJ[k]]);
                 }
             }
             responsecodeftch = conftch.getResponseCode();
@@ -64,8 +64,8 @@ function fetch(url, method, body, contentType, exHeaders){
             conftch.setRequestProperty("User-Agent", UserAgentftch);
             if(exHeaders != null){
                 exHeadersJ = Object.keys(exHeaders);
-                for(var k of exHeadersJ){
-                    conftch.setRequestProperty(k, exHeaders[k]);
+                for(var k in exHeadersJ){
+                    conftch.setRequestProperty(exHeadersJ[k], exHeaders[exHeadersJ[k]]);
                 }
             }
             responsecodeftch = conftch.getResponseCode();
@@ -93,8 +93,8 @@ function fetch(url, method, body, contentType, exHeaders){
         conftch.setRequestProperty("Content-Type", contentType);
         if(exHeaders != null){
                 exHeadersJ = Object.keys(exHeaders);
-                for(var k of exHeadersJ){
-                    conftch.setRequestProperty(k, exHeaders[k]);
+                for(var k in exHeadersJ){
+                    conftch.setRequestProperty(exHeadersJ[k], exHeaders[exHeadersJ[k]]);
                 }
             }
         jsonContentftch = body;
@@ -130,8 +130,8 @@ function fetch(url, method, body, contentType, exHeaders){
         conftch.setRequestProperty("Content-Type", contentType);
         if(exHeaders != null){
                 exHeadersJ = Object.keys(exHeaders);
-                for(var k of exHeadersJ){
-                    conftch.setRequestProperty(k, exHeaders[k]);
+                for(var k in exHeadersJ){
+                    conftch.setRequestProperty(exHeadersJ[k], exHeaders[exHeadersJ[k]]);
                 }
             }
         jsonContentftch = body;
@@ -163,8 +163,8 @@ function fetch(url, method, body, contentType, exHeaders){
         conftch.setRequestProperty("Content-Type", contentType);
         if(exHeaders != null){
                 exHeadersJ = Object.keys(exHeaders);
-                for(var k of exHeadersJ){
-                    conftch.setRequestProperty(k, exHeaders[k]);
+                for(var k in exHeadersJ){
+                    conftch.setRequestProperty(exHeadersJ[k], exHeaders[exHeadersJ[k]]);
                 }
             }
         conftch.setRequestMethod("DELETE");
