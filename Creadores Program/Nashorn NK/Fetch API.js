@@ -1,6 +1,7 @@
 //Addon for Nashorn made by Creadores Program©2023
 //MIT license© https://raw.githubusercontent.com/Trollhunters501/Fetch-API-Nashorn/main/LICENSE
-function fetch(url, method, body){
+function fetch(url, method, body, contentType){
+    contentType = contentType || "application/json; utf-8";
     let HttpURLConnectionftch = Java.type('java.net.HttpURLConnection');
     let URLftch = Java.type('java.net.URL');
     let BufferedReaderftch = Java.type('java.io.BufferedReader');
@@ -93,7 +94,7 @@ function fetch(url, method, body){
         conftch = urlftch.openConnection();
         conftch.setRequestMethod("POST");
         conftch.setRequestProperty("User-Agent", UserAgentftch);
-        conftch.setRequestProperty("Content-Type", "application/json; utf-8");
+        conftch.setRequestProperty("Content-Type", contentType);
         jsonContentftch = body;
         conftch.setDoOutput(true);
         osftch = conftch.getOutputStream();
@@ -124,7 +125,7 @@ function fetch(url, method, body){
         conftch = urlftch.openConnection();
         conftch.setRequestMethod("PUT");
         conftch.setRequestProperty("User-Agent", UserAgentftch);
-        conftch.setRequestProperty("Content-Type", "application/json; utf-8");
+        conftch.setRequestProperty("Content-Type", contentType);
         jsonContentftch = body;
         conftch.setDoOutput(true);
         osftch = conftch.getOutputStream();
@@ -147,6 +148,13 @@ function fetch(url, method, body){
         return responseftch.toString();
     }
     if(method == "DELETE"){
-        console.warn("Not supported!");
+        urlftch = new URLftch(url);
+        conftch = urlftch.openConnection();
+        conftch.setDoOutput(true);
+        conftch.setRequestProperty("User-Agent", UserAgentftch);
+        conftch.setRequestProperty("Content-Type", contentType);
+        conftch.setRequestMethod("DELETE");
+        conftch.connect();
+        return conftch.getResponseCode();
     }
 }
