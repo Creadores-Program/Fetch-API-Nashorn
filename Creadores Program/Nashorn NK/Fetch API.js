@@ -29,7 +29,8 @@ function fetch(url, method, body, contentType){
     let osftch;
     let inputftch;
     let brftch;
-    if(method == "GET"){
+    switch(method){
+    case "GET":
         try{
             urlftch = new URLftch(url);
             conftch = urlftch.openConnection();
@@ -47,8 +48,8 @@ function fetch(url, method, body, contentType){
             console.error(error);
         }
         return;
-    }
-    if(method == "HEAD"){
+    break;
+    case "HEAD":
         try{
             urlftch = new URLftch(url);
             conftch = urlftch.openConnection();
@@ -66,8 +67,8 @@ function fetch(url, method, body, contentType){
             console.error(error);
         }
         return;
-    }
-    if(method == "POST"){
+    break;
+    case "POST":
         if(!body){
             console.error("You need content to use POST!");
             return;
@@ -97,8 +98,8 @@ function fetch(url, method, body, contentType){
             brftch.close();
         }
         return responseftch.toString();
-    }
-    if(method == "PUT"){
+    break;
+    case "PUT":
         if(!body){
             console.error("You need content to use PUT!");
             return;
@@ -128,8 +129,8 @@ function fetch(url, method, body, contentType){
             brftch.close();
         }
         return responseftch.toString();
-    }
-    if(method == "DELETE"){
+    break;
+    case"DELETE":
         urlftch = new URLftch(url);
         conftch = urlftch.openConnection();
         conftch.setDoOutput(true);
@@ -138,5 +139,8 @@ function fetch(url, method, body, contentType){
         conftch.setRequestMethod("DELETE");
         conftch.connect();
         return conftch.getResponseCode();
+    break;
+        default:
+            break;
     }
 }
