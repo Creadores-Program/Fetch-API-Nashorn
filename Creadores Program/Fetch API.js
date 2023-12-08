@@ -1,109 +1,113 @@
 //Addon for Nashorn made by Creadores Program©2023
 //MIT license© https://raw.githubusercontent.com/Trollhunters501/Fetch-API-Nashorn/main/LICENSE
-function fetch(url, method, body){
-    var HttpURLConnectionftch = Java.type('java.net.HttpURLConnection');
-    var URLftch = Java.type('java.net.URL');
-    var BufferedReaderftch = Java.type('java.io.BufferedReader');
-    var InputStreamReaderftch = Java.type('java.io.InputStreamReader');
-    var StringBufferftch = Java.type("java.lang.StringBuffer");
-    var StringBuilderftch = Java.type("java.lang.StringBuilder");
-    var sendftch = {
-        error: "[ERROR] ",
-        info: "[INFO] ",
-        warn: "[WARN] ",
-        log: ""
-    }
+function fetch(url, method, body, contentType){
+    contentType = contentType || "application/json; utf-8";
+    let HttpURLConnectionftch = Java.type('java.net.HttpURLConnection');
+    let URLftch = Java.type('java.net.URL');
+    let BufferedReaderftch = Java.type('java.io.BufferedReader');
+    let InputStreamReaderftch = Java.type('java.io.InputStreamReader');
+    let StringBufferftch = Java.type("java.lang.StringBuffer");
+    let StringBuilderftch = Java.type("java.lang.StringBuilder");
+    let UserAgentftch = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36";
     if(!url){
-        console.error(sendftch.error + "it cant be empty!");
+        console.error("it cant be empty!");
         return;
     }
     if(url.contains(" ")){
-        console.error(sendftch.error + "The web page cannot contain spaces!");
+        console.error("The web page cannot contain spaces!");
         return;
     }
+    let urlftch;
+    let conftch;
+    let responsecodeftch;
+    let responseLineftch;
+    let inftch;
+    let inputlineftch;
+    let responseftch;
+    let jsonContentftch;
+    let osftch;
+    let inputftch;
+    let brftch;
     if(!method){
         try{
-            var urlftch = new URLftch(url);
-            var conftch = urlftch.openConnection();
+            urlftch = new URLftch(url);
+            conftch = urlftch.openConnection();
             conftch.setRequestMethod("GET");
-            conftch.setRequestProperty("User-Agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36");
-            var responsecodeftch = conftch.getResponseCode();
-            var inftch = new BufferedReaderftch(new InputStreamReaderftch(conftch.getInputStream()));
-            var inputlineftch;
-            var responseftch = new StringBufferftch();
+            conftch.setRequestProperty("User-Agent", UserAgentftch);
+            responsecodeftch = conftch.getResponseCode();
+            inftch = new BufferedReaderftch(new InputStreamReaderftch(conftch.getInputStream()));
+            responseftch = new StringBufferftch();
             while((inputlineftch = inftch.readLine()) != null){
                 responseftch.append(inputlineftch);
             }
             inftch.close();
             return responseftch.toString();
         }catch(error){
-            console.error(sendftch.error + error);
+            console.error(error);
         }
         return;
     }
     if(method == "GET"){
         try{
-            var urlftch = new URLftch(url);
-            var conftch = urlftch.openConnection();
+            urlftch = new URLftch(url);
+            conftch = urlftch.openConnection();
             conftch.setRequestMethod("GET");
-            conftch.setRequestProperty("User-Agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36");
-            var responsecodeftch = conftch.getResponseCode();
-            var inftch = new BufferedReaderftch(new InputStreamReaderftch(conftch.getInputStream()));
-            var inputlineftch;
-            var responseftch = new StringBufferftch();
+            conftch.setRequestProperty("User-Agent", UserAgentftch);
+            responsecodeftch = conftch.getResponseCode();
+            inftch = new BufferedReaderftch(new InputStreamReaderftch(conftch.getInputStream()));
+            responseftch = new StringBufferftch();
             while((inputlineftch = inftch.readLine()) != null){
                 responseftch.append(inputlineftch);
             }
             inftch.close();
             return responseftch.toString();
         }catch(error){
-            console.error(sendftch.error + error);
+            console.error(error);
         }
         return;
     }
     if(method == "HEAD"){
         try{
-            var urlftch = new URLftch(url);
-            var conftch = urlftch.openConnection();
+            urlftch = new URLftch(url);
+            conftch = urlftch.openConnection();
             conftch.setRequestMethod("HEAD");
-            conftch.setRequestProperty("User-Agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36");
-            var responsecodeftch = conftch.getResponseCode();
-            var inftch = new BufferedReaderftch(new InputStreamReaderftch(conftch.getInputStream()));
-            var inputlineftch;
-            var responseftch = new StringBufferftch();
+            conftch.setRequestProperty("User-Agent", UserAgentftch);
+            responsecodeftch = conftch.getResponseCode();
+            inftch = new BufferedReaderftch(new InputStreamReaderftch(conftch.getInputStream()));
+            responseftch = new StringBufferftch();
             while((inputlineftch = inftch.readLine()) != null){
                 responseftch.append(inputlineftch);
             }
             inftch.close();
             return responseftch.toString();
         }catch(error){
-            console.error(sendftch.error + error);
+            console.error(error);
         }
         return;
     }
     if(method == "POST"){
         if(!body){
-            console.error(sendftch.error + "You need content to use POST!");
+            console.error("You need content to use POST!");
             return;
         }
-        var urlftch = new URLftch(url);
-        var conftch = urlftch.openConnection();
+        urlftch = new URLftch(url);
+        conftch = urlftch.openConnection();
         conftch.setRequestMethod("POST");
-        conftch.setRequestProperty("User-Agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36");
-        conftch.setRequestProperty("Content-Type", "application/json; utf-8");
-        var jsonContentftch = body;
+        conftch.setRequestProperty("User-Agent", UserAgentftch);
+        conftch.setRequestProperty("Content-Type", contentType);
+        jsonContentftch = body;
         conftch.setDoOutput(true);
-        var osftch = conftch.getOutputStream();
+        osftch = conftch.getOutputStream();
         try{
-            var inputftch = jsonContentftch.getBytes("utf-8");
+            inputftch = jsonContentftch.getBytes("utf-8");
             osftch.write(inputftch, 0, inputftch.length);
         }finally{
             osftch.close();
         }
-        var brftch = new BufferedReaderftch(new InputStreamReaderftch(conftch.getInputStream(), "utf-8"));
+        brftch = new BufferedReaderftch(new InputStreamReaderftch(conftch.getInputStream(), "utf-8"));
         try{
-            var responseftch = new StringBuilderftch();
-            var responseLineftch = null;
+            responseftch = new StringBuilderftch();
+            responseLineftch = null;
             while((responseLineftch = brftch.readLine()) != null){
                 responseftch.append(responseLineftch.trim());
             }
@@ -114,27 +118,27 @@ function fetch(url, method, body){
     }
     if(method == "PUT"){
         if(!body){
-            console.error(sendftch.error + "You need content to use PUT!");
+            console.error("You need content to use PUT!");
             return;
         }
-        var urlftch = new URLftch(url);
-        var conftch = urlftch.openConnection();
+        urlftch = new URLftch(url);
+        conftch = urlftch.openConnection();
         conftch.setRequestMethod("PUT");
-        conftch.setRequestProperty("User-Agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36");
-        conftch.setRequestProperty("Content-Type", "application/json; utf-8");
-        var jsonContentftch = body;
+        conftch.setRequestProperty("User-Agent", UserAgentftch);
+        conftch.setRequestProperty("Content-Type", contentType);
+        jsonContentftch = body;
         conftch.setDoOutput(true);
-        var osftch = conftch.getOutputStream();
+        osftch = conftch.getOutputStream();
         try{
-            var inputftch = jsonContentftch.getBytes("utf-8");
+            inputftch = jsonContentftch.getBytes("utf-8");
             osftch.write(inputftch, 0, inputftch.length);
         }finally{
             osftch.close();
         }
-        var brftch = new BufferedReaderftch(new InputStreamReaderftch(conftch.getInputStream(), "utf-8"));
+        brftch = new BufferedReaderftch(new InputStreamReaderftch(conftch.getInputStream(), "utf-8"));
         try{
-            var responseftch = new StringBuilderftch();
-            var responseLineftch = null;
+            responseftch = new StringBuilderftch();
+            responseLineftch = null;
             while((responseLineftch = brftch.readLine()) != null){
                 responseftch.append(responseLineftch.trim());
             }
@@ -144,6 +148,13 @@ function fetch(url, method, body){
         return responseftch.toString();
     }
     if(method == "DELETE"){
-        console.warn(sendftch.warn + "Not supported!");
+        urlftch = new URLftch(url);
+        conftch = urlftch.openConnection();
+        conftch.setDoOutput(true);
+        conftch.setRequestProperty("User-Agent", UserAgentftch);
+        conftch.setRequestProperty("Content-Type", contentType);
+        conftch.setRequestMethod("DELETE");
+        conftch.connect();
+        return conftch.getResponseCode();
     }
 }
