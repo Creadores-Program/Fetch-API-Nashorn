@@ -8,7 +8,7 @@ function fetch(url, method, body, contentType){
     let InputStreamReaderftch = Java.type('java.io.InputStreamReader');
     let StringBufferftch = Java.type("java.lang.StringBuffer");
     let StringBuilderftch = Java.type("java.lang.StringBuilder");
-    let UserAgentftch = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36";
+    let UserAgentftch = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36";
     if(!url){
         console.error("it cant be empty!");
         return;
