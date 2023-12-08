@@ -1,6 +1,6 @@
 //Addon for Nashorn made by Creadores Program©2023
 //MIT license© https://raw.githubusercontent.com/Trollhunters501/Fetch-API-Nashorn/main/LICENSE
-function fetch(url, method, body, contentType){
+function fetch(url, method, body, contentType, exHeaders){
     method = method || "GET";
     contentType = contentType || "application/json; utf-8";
     let HttpURLConnectionftch = Java.type('java.net.HttpURLConnection');
@@ -29,6 +29,7 @@ function fetch(url, method, body, contentType){
     let osftch;
     let inputftch;
     let brftch;
+    let exHeadersJ;
     switch(method){
     case "GET":
         try{
@@ -36,6 +37,12 @@ function fetch(url, method, body, contentType){
             conftch = urlftch.openConnection();
             conftch.setRequestMethod("GET");
             conftch.setRequestProperty("User-Agent", UserAgentftch);
+            if(exHeaders != null){
+                exHeadersJ = Object.keys(exHeaders);
+                for(var k of exHeadersJ){
+                    conftch.setRequestProperty(k, exHeaders[k]);
+                }
+            }
             responsecodeftch = conftch.getResponseCode();
             inftch = new BufferedReaderftch(new InputStreamReaderftch(conftch.getInputStream()));
             responseftch = new StringBufferftch();
@@ -55,6 +62,12 @@ function fetch(url, method, body, contentType){
             conftch = urlftch.openConnection();
             conftch.setRequestMethod("HEAD");
             conftch.setRequestProperty("User-Agent", UserAgentftch);
+            if(exHeaders != null){
+                exHeadersJ = Object.keys(exHeaders);
+                for(var k of exHeadersJ){
+                    conftch.setRequestProperty(k, exHeaders[k]);
+                }
+            }
             responsecodeftch = conftch.getResponseCode();
             inftch = new BufferedReaderftch(new InputStreamReaderftch(conftch.getInputStream()));
             responseftch = new StringBufferftch();
@@ -78,6 +91,12 @@ function fetch(url, method, body, contentType){
         conftch.setRequestMethod("POST");
         conftch.setRequestProperty("User-Agent", UserAgentftch);
         conftch.setRequestProperty("Content-Type", contentType);
+        if(exHeaders != null){
+                exHeadersJ = Object.keys(exHeaders);
+                for(var k of exHeadersJ){
+                    conftch.setRequestProperty(k, exHeaders[k]);
+                }
+            }
         jsonContentftch = body;
         conftch.setDoOutput(true);
         osftch = conftch.getOutputStream();
@@ -109,6 +128,12 @@ function fetch(url, method, body, contentType){
         conftch.setRequestMethod("PUT");
         conftch.setRequestProperty("User-Agent", UserAgentftch);
         conftch.setRequestProperty("Content-Type", contentType);
+        if(exHeaders != null){
+                exHeadersJ = Object.keys(exHeaders);
+                for(var k of exHeadersJ){
+                    conftch.setRequestProperty(k, exHeaders[k]);
+                }
+            }
         jsonContentftch = body;
         conftch.setDoOutput(true);
         osftch = conftch.getOutputStream();
@@ -136,6 +161,12 @@ function fetch(url, method, body, contentType){
         conftch.setDoOutput(true);
         conftch.setRequestProperty("User-Agent", UserAgentftch);
         conftch.setRequestProperty("Content-Type", contentType);
+        if(exHeaders != null){
+                exHeadersJ = Object.keys(exHeaders);
+                for(var k of exHeadersJ){
+                    conftch.setRequestProperty(k, exHeaders[k]);
+                }
+            }
         conftch.setRequestMethod("DELETE");
         conftch.connect();
         return conftch.getResponseCode();
