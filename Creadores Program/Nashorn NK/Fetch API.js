@@ -16,16 +16,26 @@ function fetch(url, method, body){
         console.error("The web page cannot contain spaces!");
         return;
     }
+    let urlftch;
+    let conftch;
+    let responsecodeftch;
+    let responseLineftch;
+    let inftch;
+    let inputlineftch;
+    let responseftch;
+    let jsonContentftch;
+    let osftch;
+    let inputftch;
+    let brftch;
     if(!method){
         try{
-            let urlftch = new URLftch(url);
-            let conftch = urlftch.openConnection();
+            urlftch = new URLftch(url);
+            conftch = urlftch.openConnection();
             conftch.setRequestMethod("GET");
             conftch.setRequestProperty("User-Agent", UserAgentftch);
-            let responsecodeftch = conftch.getResponseCode();
-            let inftch = new BufferedReaderftch(new InputStreamReaderftch(conftch.getInputStream()));
-            let inputlineftch;
-            var responseftch = new StringBufferftch();
+            responsecodeftch = conftch.getResponseCode();
+            inftch = new BufferedReaderftch(new InputStreamReaderftch(conftch.getInputStream()));
+            responseftch = new StringBufferftch();
             while((inputlineftch = inftch.readLine()) != null){
                 responseftch.append(inputlineftch);
             }
@@ -38,14 +48,13 @@ function fetch(url, method, body){
     }
     if(method == "GET"){
         try{
-            let urlftch = new URLftch(url);
-            let conftch = urlftch.openConnection();
+            urlftch = new URLftch(url);
+            conftch = urlftch.openConnection();
             conftch.setRequestMethod("GET");
             conftch.setRequestProperty("User-Agent", UserAgentftch);
-            let responsecodeftch = conftch.getResponseCode();
-            let inftch = new BufferedReaderftch(new InputStreamReaderftch(conftch.getInputStream()));
-            let inputlineftch;
-            var responseftch = new StringBufferftch();
+            responsecodeftch = conftch.getResponseCode();
+            inftch = new BufferedReaderftch(new InputStreamReaderftch(conftch.getInputStream()));
+            responseftch = new StringBufferftch();
             while((inputlineftch = inftch.readLine()) != null){
                 responseftch.append(inputlineftch);
             }
@@ -58,14 +67,13 @@ function fetch(url, method, body){
     }
     if(method == "HEAD"){
         try{
-            let urlftch = new URLftch(url);
-            let conftch = urlftch.openConnection();
+            urlftch = new URLftch(url);
+            conftch = urlftch.openConnection();
             conftch.setRequestMethod("HEAD");
             conftch.setRequestProperty("User-Agent", UserAgentftch);
-            let responsecodeftch = conftch.getResponseCode();
-            let inftch = new BufferedReaderftch(new InputStreamReaderftch(conftch.getInputStream()));
-            let inputlineftch;
-            var responseftch = new StringBufferftch();
+            responsecodeftch = conftch.getResponseCode();
+            inftch = new BufferedReaderftch(new InputStreamReaderftch(conftch.getInputStream()));
+            responseftch = new StringBufferftch();
             while((inputlineftch = inftch.readLine()) != null){
                 responseftch.append(inputlineftch);
             }
@@ -81,24 +89,24 @@ function fetch(url, method, body){
             console.error("You need content to use POST!");
             return;
         }
-        let urlftch = new URLftch(url);
-        let conftch = urlftch.openConnection();
+        urlftch = new URLftch(url);
+        conftch = urlftch.openConnection();
         conftch.setRequestMethod("POST");
         conftch.setRequestProperty("User-Agent", UserAgentftch);
         conftch.setRequestProperty("Content-Type", "application/json; utf-8");
-        let jsonContentftch = body;
+        jsonContentftch = body;
         conftch.setDoOutput(true);
-        let osftch = conftch.getOutputStream();
+        osftch = conftch.getOutputStream();
         try{
-            let inputftch = jsonContentftch.getBytes("utf-8");
+            inputftch = jsonContentftch.getBytes("utf-8");
             osftch.write(inputftch, 0, inputftch.length);
         }finally{
             osftch.close();
         }
-        let brftch = new BufferedReaderftch(new InputStreamReaderftch(conftch.getInputStream(), "utf-8"));
+        brftch = new BufferedReaderftch(new InputStreamReaderftch(conftch.getInputStream(), "utf-8"));
         try{
-            var responseftch = new StringBuilderftch();
-            let responseLineftch = null;
+            responseftch = new StringBuilderftch();
+            responseLineftch = null;
             while((responseLineftch = brftch.readLine()) != null){
                 responseftch.append(responseLineftch.trim());
             }
@@ -112,24 +120,24 @@ function fetch(url, method, body){
             console.error("You need content to use PUT!");
             return;
         }
-        let urlftch = new URLftch(url);
-        let conftch = urlftch.openConnection();
+        urlftch = new URLftch(url);
+        conftch = urlftch.openConnection();
         conftch.setRequestMethod("PUT");
         conftch.setRequestProperty("User-Agent", UserAgentftch);
         conftch.setRequestProperty("Content-Type", "application/json; utf-8");
-        let jsonContentftch = body;
+        jsonContentftch = body;
         conftch.setDoOutput(true);
-        let osftch = conftch.getOutputStream();
+        osftch = conftch.getOutputStream();
         try{
-            let inputftch = jsonContentftch.getBytes("utf-8");
+            inputftch = jsonContentftch.getBytes("utf-8");
             osftch.write(inputftch, 0, inputftch.length);
         }finally{
             osftch.close();
         }
-        let brftch = new BufferedReaderftch(new InputStreamReaderftch(conftch.getInputStream(), "utf-8"));
+        brftch = new BufferedReaderftch(new InputStreamReaderftch(conftch.getInputStream(), "utf-8"));
         try{
-            var responseftch = new StringBuilderftch();
-            let responseLineftch = null;
+            responseftch = new StringBuilderftch();
+            responseLineftch = null;
             while((responseLineftch = brftch.readLine()) != null){
                 responseftch.append(responseLineftch.trim());
             }
