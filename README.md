@@ -29,3 +29,7 @@ In post it is like this:
 //how fetch works:
 fetch(theurl, method, contentToSend);
 ```
+
+# Advanced Fetch:
+
+specify the content type in parameter 4, and in the parameter 5 extra healders like Authorization, etc.
