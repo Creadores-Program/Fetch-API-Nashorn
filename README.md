@@ -32,4 +32,7 @@ fetch(theurl, method, contentToSend);
 
 # Advanced Fetch:
 
-specify the content type in parameter 4, and in the parameter 5 extra healders like Authorization, etc.
+specify the content type in parameter 4, and in the parameter 5 extra healders like Authorization, etc. in Json example:
+{
+  Authorization: "hepi"
+}
